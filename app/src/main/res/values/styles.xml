@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MainTitleStyle">
+        <item name="android:textSize">@dimen/text_title_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="SecondaryTitleStyle">
+        <item name="android:textSize">@dimen/text_regular_size</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?attr/textColor</item>
+    </style>
+
+    <style name="PriceStyle">
+        <item name="android:textSize">@dimen/text_regular_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/textColorInverted</item>
+        <item name="android:paddingHorizontal">@dimen/padding_medium</item>
+        <item name="android:background">@drawable/rounded_corners_background</item>
+    </style>
+
+    <style name="BadgeStyle">
+        <item name="android:textSize">@dimen/text_regular_size</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?attr/textColor</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="NoBackgroundDialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize10Percent" parent="">
+        <item name="cornerSize">10%</item>
+    </style>
+
+</resources>

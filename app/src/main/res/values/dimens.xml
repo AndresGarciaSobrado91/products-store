@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="space_xxbig">46dp</dimen>
+    <dimen name="space_xbig">36dp</dimen>
+    <dimen name="space_big">24dp</dimen>
+    <dimen name="space_regular">16dp</dimen>
+    <dimen name="space_medium">10dp</dimen>
+    <dimen name="space_small">5dp</dimen>
+
+    <dimen name="padding_regular">20dp</dimen>
+    <dimen name="padding_medium">10dp</dimen>
+    <dimen name="padding_small">5dp</dimen>
+
+    <dimen name="square_image_item">44dp</dimen>
+    <dimen name="square_image_item_small">30dp</dimen>
+
+    <dimen name="text_big_title_size">26sp</dimen>
+    <dimen name="text_title_size">22sp</dimen>
+    <dimen name="details_title_size">24sp</dimen>
+    <dimen name="overview_size">18sp</dimen>
+    <dimen name="text_regular_size">16sp</dimen>
+
+    <dimen name="logo_height">32dp</dimen>
+    <dimen name="close_button_size">48dp</dimen>
+
+</resources>

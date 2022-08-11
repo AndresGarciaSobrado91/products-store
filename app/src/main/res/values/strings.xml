@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Products Store</string>
+    <string name="connection_error">No internet connection.</string>
+    <string name="generic_error">"We are experiencing difficulties with the system. Please try again later."</string>
+    <string name="unexpected_error_message">An unexpected error occurred.</string>
+
+    <string name="available_discounts">Available discounts!</string>
+    <string name="error">Error</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="price_label">%1$s €</string>
+    <string name="price_by_unit">Price by unit:</string>
+    <string name="quantity_and_price">(x%1$s) %2$s</string>
+    <string name="total">Total:</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="update_cart">Update cart</string>
+    <string name="cart_total">Total in cart:</string>
+    <string name="go_to_checkout">Go to checkout!</string>
+    <string name="go_to_pay">Go to pay</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="remove_item_warning">This product will be removed from your basket.</string>
+    <string name="empty_cart">Empty cart</string>
+    <string name="empty_cart_description">Your basket is now empty. Please select some products to continue.</string>
+    <string name="demo_end_title">Here ends this demo…</string>
+    <string name="demo_end_body">Thank you very much!</string>
+    <string name="return_to_home">Return to home</string>
+    <string name="empty_list">Sorry, there are no available items.</string>
+</resources>

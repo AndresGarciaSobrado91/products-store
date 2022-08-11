@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/productsFragment">
+
+    <fragment
+        android:id="@+id/productsFragment"
+        android:name="com.garcia.productsstore.presentation.products.ProductsFragment"
+        android:label="fragment_products"
+        tools:layout="@layout/fragment_products" >
+        <action
+            android:id="@+id/action_productsFragment_to_addItemToCartBottomSheet"
+            app:destination="@id/addItemToCartBottomSheet" />
+        <action
+            android:id="@+id/action_productsFragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/addItemToCartBottomSheet"
+        android:name="com.garcia.productsstore.presentation.addItemToCart.AddItemToCartBottomSheet"
+        android:label="AddItemToCartBottomSheet"
+        tools:layout="@layout/bottom_sheet_add_item_to_cart">
+        <argument
+            android:name="product"
+            app:argType="com.garcia.productsstore.domain.model.Product" />
+    </dialog>
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.garcia.productsstore.presentation.checkout.CheckoutFragment"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" >
+        <action
+            android:id="@+id/action_checkoutFragment_to_payFragment"
+            app:destination="@id/payFragment"
+            app:popUpTo="@id/productsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/payFragment"
+        android:name="com.garcia.productsstore.presentation.pay.PayFragment"
+        android:label="PayFragment"
+        tools:layout="@layout/fragment_pay"/>
+</navigation>
