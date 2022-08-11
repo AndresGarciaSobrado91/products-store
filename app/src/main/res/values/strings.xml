@@ -4,6 +4,11 @@
     <string name="generic_error">"We are experiencing difficulties with the system. Please try again later."</string>
     <string name="unexpected_error_message">An unexpected error occurred.</string>
 
+    <string name="fragment_products_name">List of products</string>
+    <string name="bottom_sheet_add_item_to_cart_name">Add item to cart</string>
+    <string name="fragment_checkout_name">Checkout</string>
+    <string name="fragment_pay_name">Payment</string>
+
     <string name="available_discounts">Available discounts!</string>
     <string name="error">Error</string>
     <string name="ok">OK</string>

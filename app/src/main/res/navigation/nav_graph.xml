@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/productsFragment"
         android:name="com.garcia.productsstore.presentation.products.ProductsFragment"
-        android:label="fragment_products"
+        android:label="@string/fragment_products_name"
         tools:layout="@layout/fragment_products" >
         <action
             android:id="@+id/action_productsFragment_to_addItemToCartBottomSheet"
@@ -20,7 +20,7 @@
     <dialog
         android:id="@+id/addItemToCartBottomSheet"
         android:name="com.garcia.productsstore.presentation.addItemToCart.AddItemToCartBottomSheet"
-        android:label="AddItemToCartBottomSheet"
+        android:label="@string/bottom_sheet_add_item_to_cart_name"
         tools:layout="@layout/bottom_sheet_add_item_to_cart">
         <argument
             android:name="product"
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/checkoutFragment"
         android:name="com.garcia.productsstore.presentation.checkout.CheckoutFragment"
-        android:label="fragment_checkout"
+        android:label="@string/fragment_checkout_name"
         tools:layout="@layout/fragment_checkout" >
         <action
             android:id="@+id/action_checkoutFragment_to_payFragment"
@@ -39,6 +39,6 @@
     <fragment
         android:id="@+id/payFragment"
         android:name="com.garcia.productsstore.presentation.pay.PayFragment"
-        android:label="PayFragment"
+        android:label="@string/fragment_pay_name"
         tools:layout="@layout/fragment_pay"/>
 </navigation>
