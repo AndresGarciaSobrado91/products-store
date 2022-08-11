@@ -29,3 +29,5 @@ The promotion class was designed in order to be able to add new types of discoun
 The user can add or remove products from the basket and the total price of the cart is displayed in the home fragment.
 
 Once the user is ready to checkout, the checkout fragment shows all the items in the basket and the corresponding discounts if it corresponds. Here the user can decide to remove certain items and continue to the final payment screen.
+
+Not all the tests were added for a matter of time, but I consider that the most relevant ones are written.
