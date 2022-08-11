@@ -5,13 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.garcia.productsstore.R
-import com.garcia.productsstore.common.Error
 import com.garcia.productsstore.common.ResultWrapper
+import com.garcia.productsstore.common.Error
+import com.garcia.productsstore.common.formatToCurrency
 import com.garcia.productsstore.domain.model.Product
 import com.garcia.productsstore.domain.usecase.GetCartTotalUseCase
 import com.garcia.productsstore.domain.usecase.GetProductsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -24,7 +24,7 @@ class ProductsViewModel @Inject constructor(
     data class ViewState(
         val isLoading: Boolean = false,
         val products: List<Product> = emptyList(),
-        val cartTotal: Double? = null,
+        val cartTotal: String? = null,
         val error: Error? = null,
     )
 
@@ -65,7 +65,7 @@ class ProductsViewModel @Inject constructor(
             getCartTotalUseCase().collect { cartTotal ->
                 stateMutableLiveData.value = stateLiveData.value?.copy(
                     isLoading = false,
-                    cartTotal = cartTotal,
+                    cartTotal = cartTotal?.formatToCurrency(),
                     error = null
                 )
             }

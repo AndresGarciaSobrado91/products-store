@@ -6,12 +6,12 @@ import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.garcia.productsstore.R
+import com.garcia.productsstore.common.formatToCurrency
 import com.garcia.productsstore.databinding.BottomSheetAddItemToCartBinding
 import com.garcia.productsstore.presentation.utils.AlertDialogs
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -79,15 +79,15 @@ class AddItemToCartBottomSheet : BottomSheetDialogFragment() {
                     textViewPromo.text = viewState.promoDescription
                     textViewPromo.isVisible = viewState.promoDescription.isNullOrBlank().not()
                     textViewPriceValue.text =
-                        getString(R.string.price_label, it.productPrice.toString())
+                        getString(R.string.price_label, it.productPrice.formatToCurrency())
                     textViewQuantity.text = it.quantity.toString()
-                    textViewTotalValue.text = getString(R.string.price_label, it.total.toString())
+                    textViewTotalValue.text = getString(R.string.price_label, it.total.formatToCurrency())
                     textViewGlobalPrice.isVisible = it.discountApplied
                     textViewGlobalPrice.text = Html.fromHtml(
                         "<del>${
                             getString(
                                 R.string.price_label,
-                                it.globalPrice.toString()
+                                it.globalPrice.formatToCurrency()
                             )
                         }</del>",
                         Html.FROM_HTML_MODE_COMPACT

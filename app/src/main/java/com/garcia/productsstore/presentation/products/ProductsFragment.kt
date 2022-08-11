@@ -74,7 +74,7 @@ class ProductsFragment : Fragment(), ProductsAdapterListener {
                 }
 
                 viewState.cartTotal?.let {
-                    textViewTotalValue.text = getString(R.string.price_label, it.toString())
+                    textViewTotalValue.text = getString(R.string.price_label, it)
                 }
             }
         }

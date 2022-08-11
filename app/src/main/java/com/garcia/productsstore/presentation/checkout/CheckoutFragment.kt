@@ -9,8 +9,8 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.garcia.productsstore.R
+import com.garcia.productsstore.common.formatToCurrency
 import com.garcia.productsstore.databinding.FragmentCheckoutBinding
 import com.garcia.productsstore.presentation.checkout.adapter.CartAdapter
 import com.garcia.productsstore.presentation.checkout.adapter.CartAdapterListener
@@ -53,7 +53,7 @@ class CheckoutFragment : Fragment(), CartAdapterListener {
                 binding.rvCart.isVisible = true
                 adapter.submitList(it.items)
                 binding.textViewTotalValue.text =
-                    getString(R.string.price_label, it.total.toString())
+                    getString(R.string.price_label, it.total.formatToCurrency())
             }
 
             if (viewState.emptyCart) {

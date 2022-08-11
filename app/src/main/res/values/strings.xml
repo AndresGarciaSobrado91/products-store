@@ -13,7 +13,7 @@
     <string name="error">Error</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
-    <string name="price_label">%1$s €</string>
+    <string name="price_label">€ %1$s</string>
     <string name="price_by_unit">Price by unit:</string>
     <string name="quantity_and_price">(x%1$s) %2$s</string>
     <string name="total">Total:</string>

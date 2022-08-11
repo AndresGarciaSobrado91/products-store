@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.garcia.productsstore.R
+import com.garcia.productsstore.common.formatToCurrency
 import com.garcia.productsstore.databinding.ItemProductBinding
 import com.garcia.productsstore.domain.model.Product
 
@@ -35,7 +36,7 @@ class ProductsAdapter(
             textViewTitle.text = product.name
             imageViewDiscount.isVisible = product.promo != null
             textViewPrice.text =
-                root.resources.getString(R.string.price_label, product.price.toString())
+                root.resources.getString(R.string.price_label, product.price.formatToCurrency())
             mainLayout.setOnClickListener {
                 listener.onProductClicked(product)
             }

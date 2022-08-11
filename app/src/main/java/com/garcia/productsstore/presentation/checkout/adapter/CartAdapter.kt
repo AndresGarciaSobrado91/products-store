@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.garcia.productsstore.R
+import com.garcia.productsstore.common.formatToCurrency
 import com.garcia.productsstore.databinding.ItemCartBinding
 import com.garcia.productsstore.domain.model.CartItem
 
@@ -37,7 +38,7 @@ class CartAdapter(
                     cartItem.quantity.toString(),
                     root.resources.getString(
                         R.string.price_label,
-                        cartItem.total.toString()
+                        cartItem.total.formatToCurrency()
                     )
                 )
             textViewGlobalPrice.isVisible = cartItem.discountApplied
@@ -45,7 +46,7 @@ class CartAdapter(
                 "<del>${
                     root.resources.getString(
                         R.string.price_label,
-                        cartItem.globalPrice.toString()
+                        cartItem.globalPrice.formatToCurrency()
                     )
                 }</del>",
                 Html.FROM_HTML_MODE_COMPACT
