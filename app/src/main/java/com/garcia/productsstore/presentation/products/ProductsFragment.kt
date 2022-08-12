@@ -42,9 +42,6 @@ class ProductsFragment : Fragment(), ProductsAdapterListener {
         binding.apply {
             swipeRefreshLayout.setOnRefreshListener { viewModel.onSwipeToRefresh() }
             rvMain.setHasFixedSize(true)
-            val staggeredGridLayoutManager =
-                StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
-            rvMain.layoutManager = staggeredGridLayoutManager
             rvMain.adapter = adapter
             buttonGoToCheckout.setOnClickListener {
                 findNavController().navigate(ProductsFragmentDirections.actionProductsFragmentToCheckoutFragment())

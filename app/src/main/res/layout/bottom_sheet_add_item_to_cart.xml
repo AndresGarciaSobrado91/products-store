@@ -77,15 +77,14 @@
         <TextView
             android:id="@+id/textViewPromo"
             style="@style/SecondaryTitleStyle"
-            android:textStyle="italic"
-            android:textAlignment="center"
-            android:textColor="?attr/colorSecondary"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/padding_small"
             android:layout_marginBottom="@dimen/space_regular"
-            android:drawablePadding="@dimen/padding_medium"
             android:padding="@dimen/padding_small"
+            android:textAlignment="center"
+            android:textColor="?attr/colorSecondary"
+            android:textStyle="italic"
             tools:ignore="ContentDescription"
             tools:text="2 for 1! Buy two of the same product, get one free" />
 
@@ -122,7 +121,8 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/textViewQuantity"
                 app:layout_constraintStart_toEndOf="@+id/buttonSubtract"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"/>
 
             <TextView
                 android:id="@+id/textViewQuantity"

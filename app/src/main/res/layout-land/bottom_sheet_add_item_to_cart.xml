@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_medium">
+
+    <TextView
+        android:id="@+id/textViewTitle"
+        style="@style/MainTitleStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageViewProduct"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Product title" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imageViewProduct"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginHorizontal="@dimen/padding_medium"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+        app:srcCompat="@drawable/gift"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textViewPriceDescription"
+        style="@style/SecondaryTitleStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/padding_medium"
+        android:text="@string/price_by_unit"
+        app:layout_constraintStart_toEndOf="@id/imageViewProduct"
+        app:layout_constraintTop_toBottomOf="@id/textViewTitle"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/textViewPriceValue"
+        style="@style/PriceStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding_medium"
+        app:layout_constraintBaseline_toBaselineOf="@id/textViewPriceDescription"
+        app:layout_constraintStart_toEndOf="@+id/textViewPriceDescription"
+        tools:ignore="ContentDescription"
+        tools:text="5.00 €" />
+
+    <TextView
+        android:id="@+id/textViewPromo"
+        style="@style/SecondaryTitleStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding_medium"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textColor="?attr/colorSecondary"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/imageViewProduct"
+        app:layout_constraintTop_toBottomOf="@id/textViewPriceValue"
+        tools:ignore="ContentDescription"
+        tools:text="2 for 1! Buy two of the same product, get one free" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutControls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_regular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageViewProduct"
+        app:layout_constraintTop_toBottomOf="@id/textViewPromo">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonSubtract"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            app:icon="@drawable/ic_subtract"
+            app:iconPadding="0dp"
+            app:iconSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageViewCart"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageViewCart"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="@dimen/padding_medium"
+            android:src="@drawable/ic_cart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textViewQuantity"
+            app:layout_constraintStart_toEndOf="@+id/buttonSubtract"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textViewQuantity"
+            style="@style/MainTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/buttonAdd"
+            app:layout_constraintStart_toEndOf="@+id/imageViewCart"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="3" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonAdd"
+            style="@style/Widget.Material3.Button.Icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:insetLeft="0dp"
+            android:insetTop="0dp"
+            android:insetRight="0dp"
+            android:insetBottom="0dp"
+            app:icon="@drawable/ic_add"
+            app:iconPadding="0dp"
+            app:iconSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/textViewQuantity"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/imageViewProduct"
+        app:layout_constraintTop_toBottomOf="@id/layoutControls">
+
+        <TextView
+            android:id="@+id/textViewTotalDescription"
+            style="@style/SecondaryTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_medium"
+            android:padding="@dimen/padding_small"
+            android:text="@string/subtotal"
+            app:layout_constraintEnd_toStartOf="@+id/textViewTotalValue"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textViewTotalValue"
+            style="@style/PriceStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_medium"
+            app:layout_constraintBaseline_toBaselineOf="@id/textViewTotalDescription"
+            app:layout_constraintEnd_toStartOf="@id/textViewGlobalPrice"
+            app:layout_constraintStart_toEndOf="@+id/textViewTotalDescription"
+            tools:ignore="ContentDescription"
+            tools:text="15.00 €" />
+
+        <TextView
+            android:id="@+id/textViewGlobalPrice"
+            style="@style/SecondaryTitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_medium"
+            android:padding="@dimen/padding_small"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/textViewTotalValue"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:text="20.00  €" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buttonAddToCart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/padding_medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewTotalValue"
+            tools:text="@string/add_to_cart" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
