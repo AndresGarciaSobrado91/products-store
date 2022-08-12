@@ -9,13 +9,17 @@
         android:id="@+id/productsFragment"
         android:name="com.garcia.productsstore.presentation.products.ProductsFragment"
         android:label="@string/fragment_products_name"
-        tools:layout="@layout/fragment_products" >
+        tools:layout="@layout/fragment_products">
         <action
             android:id="@+id/action_productsFragment_to_addItemToCartBottomSheet"
             app:destination="@id/addItemToCartBottomSheet" />
         <action
             android:id="@+id/action_productsFragment_to_checkoutFragment"
-            app:destination="@id/checkoutFragment" />
+            app:destination="@id/checkoutFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right" />
     </fragment>
     <dialog
         android:id="@+id/addItemToCartBottomSheet"
@@ -30,15 +34,19 @@
         android:id="@+id/checkoutFragment"
         android:name="com.garcia.productsstore.presentation.checkout.CheckoutFragment"
         android:label="@string/fragment_checkout_name"
-        tools:layout="@layout/fragment_checkout" >
+        tools:layout="@layout/fragment_checkout">
         <action
             android:id="@+id/action_checkoutFragment_to_payFragment"
             app:destination="@id/payFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             app:popUpTo="@id/productsFragment" />
     </fragment>
     <fragment
         android:id="@+id/payFragment"
         android:name="com.garcia.productsstore.presentation.pay.PayFragment"
         android:label="@string/fragment_pay_name"
-        tools:layout="@layout/fragment_pay"/>
+        tools:layout="@layout/fragment_pay" />
 </navigation>
