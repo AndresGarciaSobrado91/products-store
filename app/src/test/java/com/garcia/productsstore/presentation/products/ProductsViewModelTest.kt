@@ -4,6 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.garcia.productsstore.R
 import com.garcia.productsstore.common.Error
 import com.garcia.productsstore.common.ResultWrapper
+import com.garcia.productsstore.common.formatToCurrency
 import com.garcia.productsstore.domain.model.Product
 import com.garcia.productsstore.domain.usecase.GetCartTotalUseCase
 import com.garcia.productsstore.domain.usecase.GetProductsUseCase
@@ -55,7 +56,7 @@ class ProductsViewModelTest {
             ProductsViewModel.ViewState(
                 isLoading = false,
                 products = DomainObjectMock.getProducts(),
-                cartTotal = CART_TOTAL,
+                cartTotal = CART_TOTAL.formatToCurrency(),
                 error = null,
             ),
             viewModel.stateLiveData.value
