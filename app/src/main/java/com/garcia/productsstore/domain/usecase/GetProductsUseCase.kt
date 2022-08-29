@@ -10,18 +10,14 @@ import javax.inject.Inject
 class GetProductsUseCase @Inject constructor(
     private val repository: StoreRepository,
 ) {
-    operator fun invoke(): Flow<ResultWrapper<List<Product>>> = flow {
+    suspend operator fun invoke(): ResultWrapper<List<Product>> {
         val productsResponse = repository.getProducts()
-
-        when (val discountsResponse = repository.getPromos()) {
-            is ResultWrapper.Error -> {
-                emit(ResultWrapper.Error(discountsResponse.code, discountsResponse.message))
-                return@flow
-            }
-            ResultWrapper.NetworkError -> {
-                emit(ResultWrapper.NetworkError)
-                return@flow
-            }
+        return when (val discountsResponse = repository.getPromos()) {
+            is ResultWrapper.Error -> ResultWrapper.Error(
+                discountsResponse.code,
+                discountsResponse.message
+            )
+            is ResultWrapper.NetworkError -> discountsResponse
             is ResultWrapper.Success -> {
                 if (productsResponse is ResultWrapper.Success) {
                     discountsResponse.value?.forEach {
@@ -31,9 +27,8 @@ class GetProductsUseCase @Inject constructor(
                         product?.promo = it
                     }
                 }
+                productsResponse
             }
         }
-
-        emit(productsResponse)
     }
 }

@@ -8,15 +8,15 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.garcia.productsstore.R
 import com.garcia.productsstore.databinding.FragmentProductsBinding
 import com.garcia.productsstore.domain.model.Product
 import com.garcia.productsstore.presentation.products.adapter.ProductsAdapter
 import com.garcia.productsstore.presentation.products.adapter.ProductsAdapterListener
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ProductsFragment : Fragment(), ProductsAdapterListener {
@@ -50,28 +50,30 @@ class ProductsFragment : Fragment(), ProductsAdapterListener {
     }
 
     private fun initObservers() {
-        viewModel.stateLiveData.observe(viewLifecycleOwner) { viewState ->
-            binding.apply {
-                swipeRefreshLayout.isRefreshing = viewState.isLoading
-                textViewEmptyList.isVisible =
-                    viewState.products.isEmpty() && viewState.isLoading.not()
-                layoutCartDetails.isVisible =
-                    viewState.products.isNotEmpty() && viewState.cartTotal != null
+        lifecycleScope.launch {
+            viewModel.state.collect { viewState ->
+                binding.apply {
+                    swipeRefreshLayout.isRefreshing = viewState.isLoading
+                    textViewEmptyList.isVisible =
+                        viewState.products.isEmpty() && viewState.isLoading.not()
+                    layoutCartDetails.isVisible =
+                        viewState.products.isNotEmpty() && viewState.cartTotal != null
 
-                if (viewState.products.isNotEmpty()) {
-                    rvMain.isVisible = true
-                    adapter.submitList(viewState.products)
-                } else {
-                    layoutCartDetails.isVisible = false
-                }
+                    if (viewState.products.isNotEmpty()) {
+                        rvMain.isVisible = true
+                        adapter.submitList(viewState.products)
+                    } else {
+                        layoutCartDetails.isVisible = false
+                    }
 
-                viewState.error?.let {
-                    rvMain.isVisible = false
-                    showAlertDialog(it.resourceId)
-                }
+                    viewState.error?.let {
+                        rvMain.isVisible = false
+                        showAlertDialog(it.resourceId)
+                    }
 
-                viewState.cartTotal?.let {
-                    textViewTotalValue.text = getString(R.string.price_label, it)
+                    viewState.cartTotal?.let {
+                        textViewTotalValue.text = getString(R.string.price_label, it)
+                    }
                 }
             }
         }

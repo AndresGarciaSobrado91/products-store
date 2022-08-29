@@ -37,7 +37,7 @@ class GetProductsUseCaseTest{
     @Test
     fun `should call getProducts once`() = runTest {
         // when
-        useCase().first()
+        useCase()
 
         // then
         coVerify(exactly = 1){ repository.getProducts() }
@@ -47,7 +47,7 @@ class GetProductsUseCaseTest{
     @Test
     fun `should call getPromos once`() = runTest {
         // when
-        useCase().first()
+        useCase()
 
         // then
         coVerify(exactly = 1){ repository.getPromos() }
@@ -56,7 +56,7 @@ class GetProductsUseCaseTest{
     @Test
     fun `when repo calls are successful, should return Success`() = runTest {
         // when
-        val result = useCase().first()
+        val result = useCase()
 
         // then
         Assert.assertTrue(result is ResultWrapper.Success<*>)
@@ -68,12 +68,12 @@ class GetProductsUseCaseTest{
         given(productResult = ResultWrapper.Error(404,"Not found"))
 
         // when
-        val result = useCase().first()
+        val result = useCase()
 
         // then
         Assert.assertTrue(result is ResultWrapper.Error)
         Assert.assertEquals(404, (result as ResultWrapper.Error).code)
-        Assert.assertEquals("Not found", (result as ResultWrapper.Error).message)
+        Assert.assertEquals("Not found", result.message)
     }
 
     @Test
@@ -82,12 +82,12 @@ class GetProductsUseCaseTest{
         given(promoResult = ResultWrapper.Error(404,"Not found"))
 
         // when
-        val result = useCase().first()
+        val result = useCase()
 
         // then
         Assert.assertTrue(result is ResultWrapper.Error)
         Assert.assertEquals(404, (result as ResultWrapper.Error).code)
-        Assert.assertEquals("Not found", (result as ResultWrapper.Error).message)
+        Assert.assertEquals("Not found", result.message)
     }
 
     @Test
@@ -96,7 +96,7 @@ class GetProductsUseCaseTest{
         given(productResult = ResultWrapper.NetworkError)
 
         // when
-        val result = useCase().first()
+        val result = useCase()
 
         // then
         Assert.assertTrue(result is ResultWrapper.NetworkError)
@@ -108,7 +108,7 @@ class GetProductsUseCaseTest{
         given(promoResult = ResultWrapper.NetworkError)
 
         // when
-        val result = useCase().first()
+        val result = useCase()
 
         // then
         Assert.assertTrue(result is ResultWrapper.NetworkError)
