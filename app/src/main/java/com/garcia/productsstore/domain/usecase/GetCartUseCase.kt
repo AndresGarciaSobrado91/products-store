@@ -4,7 +4,9 @@ import com.garcia.productsstore.domain.model.Cart
 import com.garcia.productsstore.domain.repository.StoreRepository
 import kotlinx.coroutines.flow.*
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class GetCartUseCase @Inject constructor(
     private val repository: StoreRepository,
 ) {

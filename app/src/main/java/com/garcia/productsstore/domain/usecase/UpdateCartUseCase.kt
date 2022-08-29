@@ -3,7 +3,9 @@ package com.garcia.productsstore.domain.usecase
 import com.garcia.productsstore.domain.model.Product
 import com.garcia.productsstore.domain.repository.StoreRepository
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class UpdateCartUseCase @Inject constructor(
     private val repository: StoreRepository,
     private val calculateProductFinalPrice: CalculateProductFinalPriceUseCase,
