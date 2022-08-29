@@ -17,7 +17,7 @@ class GetProductsUseCase @Inject constructor(
                 discountsResponse.code,
                 discountsResponse.message
             )
-            is ResultWrapper.NetworkError -> discountsResponse
+            is ResultWrapper.NetworkError -> ResultWrapper.NetworkError
             is ResultWrapper.Success -> {
                 if (productsResponse is ResultWrapper.Success) {
                     discountsResponse.value?.forEach {
