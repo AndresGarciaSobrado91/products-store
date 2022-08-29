@@ -59,7 +59,7 @@ class ProductsViewModelTest {
                 cartTotal = CART_TOTAL.formatToCurrency(),
                 error = null,
             ),
-            viewModel.stateLiveData.value
+            viewModel.state.value
         )
     }
 
@@ -83,7 +83,7 @@ class ProductsViewModelTest {
                     message = error.message
                 ),
             ),
-            viewModel.stateLiveData.value
+            viewModel.state.value
         )
     }
 
@@ -106,7 +106,7 @@ class ProductsViewModelTest {
                     resourceId = R.string.connection_error,
                 ),
             ),
-            viewModel.stateLiveData.value
+            viewModel.state.value
         )
     }
 
@@ -122,7 +122,7 @@ class ProductsViewModelTest {
         getCartTotalResult: Double? = null,
     ) {
         getProductsResult?.let {
-            coEvery { getProductsUseCase() } returns flowOf(getProductsResult)
+            coEvery { getProductsUseCase() } returns getProductsResult
         }
 
         getCartTotalResult?.let {
