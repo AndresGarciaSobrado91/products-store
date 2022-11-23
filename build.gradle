@@ -6,7 +6,7 @@ buildscript {
         lifeCycleVersion = '2.5.1'
         retrofit2Version = '2.9.0'
         okhttp3Version = '4.10.0'
-        hiltVersion = '2.43.2'
+        hiltVersion = '2.44'
         roomVersion = '2.4.3'
         lottieVersion = "3.4.0"
     }
